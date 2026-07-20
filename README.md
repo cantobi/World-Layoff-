@@ -1,6 +1,6 @@
 # World-Layoff
 
-Code Red: Analysing Global Tech Layoffs with SQL
+Code Red: Analysing Global Layoffs with SQL
 
 Description
 
