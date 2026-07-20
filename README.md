@@ -10,43 +10,45 @@ This project utilizes SQL for both extensive data cleaning and targeted explorat
 
 Tech Stack & SQL Architecture
 
-Common Table Expressions (CTEs): Used to isolate duplicates and isolate partitioned records without affecting performance.  
+1. Common Table Expressions (CTEs): Used to isolate duplicates and isolate partitioned records without affecting performance.  
 
-Window Functions: Implemented ROW_NUMBER() for deduplication and DENSE_RANK() to dynamically extract top-ranked records across calendar years.  
+2. Window Functions: Implemented ROW_NUMBER() for deduplication and DENSE_RANK() to dynamically extract top-ranked records across calendar years.  
 
-String Manipulation: Applied TRIM() and SUBSTRING() to uniform text formatting and standardize timeline horizons.  
+3. String Manipulation: Applied TRIM() and SUBSTRING() to uniform text formatting and standardize timeline horizons.  
 
-Data Type Conversions: Handled type casting using STR_TO_DATE() and ALTER TABLE commands to transition raw strings into structured time series data.  
+4. Data Type Conversions: Handled type casting using STR_TO_DATE() and ALTER TABLE commands to transition raw strings into structured time series data.  
 
-Self-Joins: Configured table self-joins to cross-reference and backfill missing categorical information based on existing company profiles.  
+5. Self-Joins: Configured table self-joins to cross-reference and backfill missing categorical information based on existing company profiles.  
 
 
 
 Project Goals
 
-Remove Duplicates: Establish a secure staging table and eliminate exact duplicate records to secure the accuracy of downstream aggregate metrics.  
+1. Remove Duplicates: Establish a secure staging table and eliminate exact duplicate records to secure the accuracy of downstream aggregate metrics.  
 
-Evaluate Null and Blank Values: Clear out records lacking primary metrics entirely and backfill missing data points contextually using identical client indices.  
+2. Evaluate Null and Blank Values: Clear out records lacking primary metrics entirely and backfill missing data points contextually using identical client indices.  
 
-Standardise the Data: Unify disparate categorical data fields and correct spacing or symbol variations across global regions. 
+3. Standardise the Data: Unify disparate categorical data fields and correct spacing or symbol variations across global regions. 
 
-Data Compression: Remove transient check columns used during processing to return a clean database schema.  
+4. Data Compression: Remove transient check columns used during processing to return a clean database schema.  
 
 
 
 Business Insights Discovered
 
-What is the cumulative (running) total of layoffs over time?
+1. What is the cumulative (running) total of layoffs over time?
 
 Between March 11, 2020 and March 6, 2023, the tech sector saw a total of 383,659 employees laid off globally. The most intense acceleration occurred in January 2023, marking a record peak of 84,714 layoffs in a single month.  
 
 
-Which companies laid off 100% of their staff, despite raising over $100M in funding?
+2. Which companies laid off 100% of their staff, despite raising over $100M in funding?
 
 High capital investment was no shield against market shifts. Companies like Britishvolt ($2.4B), Quibi ($1.8B), Deliveroo Australia ($1.7B), Katerra ($1.6B), and BlockFi ($1B) collapsed completely, releasing 100% of their personnel despite massive funding reserves.  
 
 
-Which were the top 5 companies with the most layoffs in each specific year?Major players dominated the yearly layoff metric charts:  
+3. Which were the top 5 companies with the most layoffs in each specific year?
+
+Major players dominated the yearly layoff metric charts:  
 
 2020: Uber (7,525), Booking.com (4,375), Groupon (2,800), Swiggy (2,250), Airbnb (1,900).  
 
@@ -57,11 +59,13 @@ Which were the top 5 companies with the most layoffs in each specific year?Major
 2023: Google (12,000), Microsoft (10,000), Ericsson (8,500), Amazon / Salesforce (8,000), Dell (6,650).  
 
 
-Which funding stage had the most total layoffs, and what was the average?
+4. Which funding stage had the most total layoffs, and what was the average?
+
 Publicly traded corporations bore the brunt of market corrections. Post-IPO firms accounted for the vast majority of reductions with 204,132 total layoffs. They also held the highest reduction severity, averaging 663 employees per layoff instance.  
 
 
-Which industries were hit hardest overall, and how did it change year-over-year?
+5. Which industries were hit hardest overall, and how did it change year-over-year?
+
 Overall, Consumer (45,182 total layoffs) and Retail (43,613 total layoffs) were hit hardest. Over time, market stresses shifted fields completely:  
 
 2020: Transportation led the downturn with 14,656 layoffs as global travel froze.  
